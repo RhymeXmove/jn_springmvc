@@ -18,8 +18,18 @@
             <td><input type="text" name="name"/></td>
         </tr>
         <tr>
-            <td>作者</td>
-            <td><input type="text" name="author"/></td>
+            <td>作者姓名：</td>
+            <td><input type="text" name="author.name"/></td>
+        </tr>
+        <tr>
+        <td>作者年龄：</td>
+        <td><input type="text" name="author.age"/></td>
+        </tr>
+        <tr>
+            <td>兴趣爱好：</td>
+            <td><input type="checkbox" name="author.favorite" value="足球"/>足球</td>
+            <td><input type="checkbox" name="author.favorite" value="篮球"/>篮球</td>
+            <td><input type="checkbox" name="author.favorite" value="羽毛球"/>羽毛球</td>
         </tr>
         <tr>
             <td>价格</td>
@@ -31,6 +41,10 @@
                 <input type="radio" value="true" name="ispublic">是
                 <input type="radio" value="false" name="ispublic">否
             </td>
+        </tr>
+        <tr>
+            <td>发行时间</td>
+            <td><input type="date" name="bookdate" /></td>
         </tr>
         <tr>
             <td colspan="2">
