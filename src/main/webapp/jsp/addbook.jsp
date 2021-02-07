@@ -22,8 +22,8 @@
             <td><input type="text" name="author.name"/></td>
         </tr>
         <tr>
-        <td>作者年龄：</td>
-        <td><input type="text" name="author.age"/></td>
+            <td>作者年龄：</td>
+            <td><input type="text" name="author.age"/></td>
         </tr>
         <tr>
             <td>兴趣爱好：</td>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td>发行时间</td>
-            <td><input type="date" name="bookdate" /></td>
+            <td><input type="date" name="bookdate"/></td>
         </tr>
         <tr>
             <td colspan="2">
