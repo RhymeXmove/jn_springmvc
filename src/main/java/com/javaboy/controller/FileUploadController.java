@@ -34,6 +34,7 @@ public class FileUploadController {
         String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."));
         try{
             file.transferTo(new File(folder, newName));
+            //上传到的路径为jn_springmvc\target\jn_springmvc\img\
             String url = req.getScheme() + "://" + req.getServerName()
                     + ":" + req.getServerPort() + "/img" +format + newName;
             return url;
