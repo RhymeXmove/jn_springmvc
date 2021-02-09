@@ -7,6 +7,7 @@
     <context:component-scan base-package="com.javaboy.controller, com.javaboy.utils" />
     <mvc:annotation-driven/>
     <mvc:annotation-driven conversion-service="conversionService"/>
+    <mvc:resources mapping="/**" location="/"/>
     <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">
         <property name="converters">
             <set>
@@ -19,6 +20,17 @@
         <property name="prefix" value="/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
-
-
+<!--    MultipartResolver配置-->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+<!--        默认的编码-->
+    <property name="defaultEncoding" value="UTF_8"/>
+<!--    上传文件总大小-->
+    <property name="maxUploadSize" value="1048576" />
+<!--    上传的单个文件大小-->
+    <property name="maxUploadSizePerFile" value="1048576" />
+<!--    内存中最大的数据量，超过这个数据量，数据就要开始往硬盘中写了-->
+    <property name="maxInMemorySize" value="4096"/>
+<!--    临时目录，超过maxInMemorySize 配置的大小后，数据开始往临时目录写，等全部上传完成后，再将数据合并到正式的文件上传目录-->
+        <property name="uploadTempDir" value="file:///D:\workspace\IDEA-workspace\jn_springmvc\src\main\resources\tmp"/>
+    </bean>
 </beans>
