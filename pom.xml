@@ -46,6 +46,12 @@
       <artifactId>commons-fileupload</artifactId>
       <version>1.4</version>
     </dependency>
+<!--    服务端数据校验-普通校验-->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.1.0.Final</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -1,4 +1,4 @@
-package com.javaboy.utils;
+package com.javaboy.excep;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

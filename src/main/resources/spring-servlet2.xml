@@ -7,7 +7,6 @@
     <context:component-scan base-package="com.javaboy.controller, com.javaboy.utils" />
     <mvc:annotation-driven/>
     <mvc:annotation-driven conversion-service="conversionService"/>
-    <mvc:resources mapping="/**" location="/"/>
     <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">
         <property name="converters">
             <set>
@@ -33,4 +32,20 @@
 <!--    临时目录，超过maxInMemorySize 配置的大小后，数据开始往临时目录写，等全部上传完成后，再将数据合并到正式的文件上传目录-->
         <property name="uploadTempDir" value="file:///D:\workspace\IDEA-workspace\jn_springmvc\src\main\resources\tmp"/>
     </bean>
+    <mvc:resources mapping="/**" location="/"/>
+<!--    服务端数据校验-普通校验配置-->
+    <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" id="validatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="bundleMessageSorurce"/>
+    </bean>
+    <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="bundleMessageSorurce">
+        <property name="basenames">
+            <list>
+                <value>classpath:MyMessage</value>
+            </list>
+        </property>
+        <property name="defaultEncoding" value="GBK" />
+        <property name="cacheSeconds" value="300" />
+    </bean>
+    <mvc:annotation-driven validator="validatorFactoryBean"/>
 </beans>
