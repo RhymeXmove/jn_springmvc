@@ -15,7 +15,7 @@ import java.util.List;
 public class StudentController {
     @RequestMapping("/addstudent")
     @ResponseBody
-    public void addStudent(@Validated Student2 student2, BindingResult
+    public void addStudent(@Validated(ValidationGroup2.class) Student2 student2, BindingResult
                             result) {
         if (result != null) {
             //校验未通过，获取所哟异常信息并展示出来
