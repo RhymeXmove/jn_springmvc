@@ -15,6 +15,7 @@ import java.util.List;
 public class StudentController {
     @RequestMapping("/addstudent")
     @ResponseBody
+    // 实体类中groups包含指定的校验规则的会被校验并输出校验结果
     public void addStudent(@Validated(ValidationGroup2.class) Student2 student2, BindingResult
                             result) {
         if (result != null) {
