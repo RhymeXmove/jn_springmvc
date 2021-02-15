@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="/book2" method="post">
-    <input type="submit" value="添加">
+    <input type="submit" value="发起请求">
 </form>
 </body>
 </html>

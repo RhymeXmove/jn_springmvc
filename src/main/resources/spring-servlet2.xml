@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <context:component-scan base-package="com.javaboy.controller, com.javaboy.utils" />
+    <context:component-scan base-package="com.javaboy.controller, com.javaboy.utils, com.javaboy.interceptor" />
     <mvc:annotation-driven/>
     <mvc:annotation-driven conversion-service="conversionService"/>
     <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">
@@ -32,6 +32,10 @@
 <!--    临时目录，超过maxInMemorySize 配置的大小后，数据开始往临时目录写，等全部上传完成后，再将数据合并到正式的文件上传目录-->
         <property name="uploadTempDir" value="file:///D:\workspace\IDEA-workspace\jn_springmvc\src\main\resources\tmp"/>
     </bean>
+    <!--    静态资源访问-->
+    <!--    <mvc:resources mapping="/static/html/**" location="/static/html/"/>-->
+    <!--    <mvc:resources mapping="/static/js/**" location="/static/js/"/>-->
+    <!--    <mvc:resources mapping="/static/css/**" location="/static/css/"/>-->
     <mvc:resources mapping="/**" location="/"/>
 <!--    服务端数据校验-普通校验配置-->
     <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" id="validatorFactoryBean">
@@ -98,4 +102,15 @@
             </list>
         </property>
     </bean>
+<!--    拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="myInterceptor1"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="myInterceptor2"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
