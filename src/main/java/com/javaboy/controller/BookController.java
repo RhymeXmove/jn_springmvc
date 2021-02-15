@@ -29,4 +29,5 @@ public class BookController {
                 + "<br>上架时间:"+book.getBookdate()
                 + "<h1>");
     }
+
 }
